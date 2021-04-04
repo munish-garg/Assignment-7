@@ -7,9 +7,12 @@
     box-sizing: border-box;
 }
 
-body{
-    background: linear-gradient(to right, grey, #b7b7a4);
-}
+/* body{
+    background-image: url('../images/photo-1584267385494-9fdd9a71ad75.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
 
 header nav > h2{
     display: inline-block;

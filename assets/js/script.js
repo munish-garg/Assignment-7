@@ -8,25 +8,22 @@ async function fetchInformation(e){
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${API_KEY}`)
     input.value = '';
     const data = await response.json();
-    console.log(data.cod);
+    // console.log(data.cod);
     if(data.cod === 200){
-        const name = data.name;
-        const temperature = data.main.temp;
-        const min_temp = data.main.temp_min;
-        const max_temp = data.main.temp_max;
-        const li1 = document.createElement('li');
-        const li2 = document.createElement('li');
-        const li3 = document.createElement('li');
-        const li4 = document.createElement('li');
-        li1.innerText = name;
-        li2.innerText = temperature;
-        li3.innerText = min_temp;
-        li4.innerText = max_temp;
-        list.append(li1);
-        list.append(li2);
-        list.append(li3);
-        list.append(li4);
-        console.log(data);
+        const array = [];
+        const str = `${data.name}, ${data.sys.country}`;
+        array.push(str, new Date().toDateString());
+        const temp = data.main.temp - 273;
+        const temp_max = data.main.temp_max - 273;
+        const temp_min = data.main.temp_min - 273;
+        array.push(temp, temp_max, temp_min);
+        array.push(data.visibility)
+        console.log(array)
+        for(let i = 0;i<array.length;i++){
+            const li = document.createElement('li');
+            li.innerText = array[i];
+            list.append(li);
+        }
     }
     else{
         const warning = "The city with this name is not found!!!"
@@ -34,6 +31,7 @@ async function fetchInformation(e){
     }
 }
 
-
 btn.addEventListener('click', fetchInformation);
+input.addEventListener('keydown', execution)
+
 // console.log('Hello World')
