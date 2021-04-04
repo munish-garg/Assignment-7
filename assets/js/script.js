@@ -19,6 +19,7 @@ async function fetchInformation(e){
         array.push(temp, temp_max, temp_min);
         array.push(`Visibility: ${data.visibility}`)
         console.log(array)
+        console.log(data);
         for(let i = 0;i<array.length;i++){
             const li = document.createElement('li');
             li.innerText = array[i];
