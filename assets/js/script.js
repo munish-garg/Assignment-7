@@ -8,16 +8,16 @@ async function fetchInformation(e){
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${API_KEY}`)
     input.value = '';
     const data = await response.json();
-    // console.log(data.cod);
+    console.log(data);
     if(data.cod === 200){
         array = [];
         const str = `${data.name}, ${data.sys.country}`;
         array.push(str, new Date().toDateString());
         const temp = `Temperature: ${Math.round(data.main.temp - 273)}°C`;
-        const temp_max = `Minimum Temperature: ${Math.round(data.main.temp_max - 273)}°C`;
-        const temp_min = `Maximum Temperature: ${Math.round(data.main.temp_min - 273)}°C`;
+        const temp_max = `Maximum Temperature: ${Math.round(data.main.temp_max - 273)}°C`;
+        const temp_min = `Minimum Temperature: ${Math.round(data.main.temp_min - 273)}°C`;
         array.push(temp, temp_max, temp_min);
-        array.push(`Visibility: ${data.visibility}`)
+        array.push(`Visibility: ${data.visibility}`);
         console.log(array)
         console.log(data);
         for(let i = 0;i<array.length;i++){
