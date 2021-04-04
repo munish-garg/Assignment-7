@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background: linear-gradient(to right, grey, #b7b7a4);
+}
+
 header nav > h2{
     display: inline-block;
     position: relative;
@@ -16,7 +20,7 @@ header nav > h2{
 }
 
 section {
-    width: 50vw;
+    width: 25vw;
     margin: auto;
     border: solid 3px black;
 }
@@ -39,4 +43,24 @@ header nav i{
     color: white;
     font-size: larger;
     margin-left: 10px;
+}
+
+
+#detail-heading{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-weight: bolder;
+    font-size: xx-large;
+    margin: 20px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+}
+
+input[type="text"]:focus{
+    outline: none;
 }
