@@ -10,7 +10,7 @@ async function fetchInformation(e){
     const data = await response.json();
     // console.log(data.cod);
     if(data.cod === 200){
-        const array = [];
+        array = [];
         const str = `${data.name}, ${data.sys.country}`;
         array.push(str, new Date().toDateString());
         const temp = `Temperature: ${Math.round(data.main.temp - 273)}°C`;
@@ -32,10 +32,13 @@ async function fetchInformation(e){
 }
 
 function clearFunction(){
-    list.children.delete();
+    while(list.childElementCount !== 0){
+        list.lastChild.remove();
+    }
 }
 
 btn.addEventListener('click', fetchInformation);
 input.addEventListener('keydown',clearFunction);
+input.addEventListener('click', clearFunction);
 
 // console.log('Hello World')
