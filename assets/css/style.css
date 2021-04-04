@@ -1,0 +1,13 @@
+header nav h1{
+    text-align: center;
+}
+
+section {
+    width: 50vw;
+    margin: auto;
+    border: solid 3px black;
+}
+
+ul{
+    list-style: none;
+}
