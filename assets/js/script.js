@@ -30,9 +30,7 @@ async function fetchInformation(e){
     }
     else{
         const warning = "The city with this name is not found!!!"
-        const ele = document.createElement('li');
-        ele.innerText = warning;
-        list.append(ele);
+        alert(warning)
     }
 }
 
