@@ -13,11 +13,11 @@ async function fetchInformation(e){
         const array = [];
         const str = `${data.name}, ${data.sys.country}`;
         array.push(str, new Date().toDateString());
-        const temp = data.main.temp - 273;
-        const temp_max = data.main.temp_max - 273;
-        const temp_min = data.main.temp_min - 273;
+        const temp = `Temperature: ${Math.round(data.main.temp - 273)}°C`;
+        const temp_max = `Minimum Temperature: ${Math.round(data.main.temp_max - 273)}°C`;
+        const temp_min = `Maximum Temperature: ${Math.round(data.main.temp_min - 273)}°C`;
         array.push(temp, temp_max, temp_min);
-        array.push(data.visibility)
+        array.push(`Visibility: ${data.visibility}`)
         console.log(array)
         for(let i = 0;i<array.length;i++){
             const li = document.createElement('li');
@@ -31,7 +31,11 @@ async function fetchInformation(e){
     }
 }
 
+function clearFunction(){
+    list.children.delete();
+}
+
 btn.addEventListener('click', fetchInformation);
-input.addEventListener('keydown', execution)
+input.addEventListener('keydown',clearFunction);
 
 // console.log('Hello World')
